@@ -1,0 +1,167 @@
+.footer {
+	padding: 35px 0;
+	background-color: $cor1;
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	overflow: hidden;
+
+	@include media(){
+		padding: 0px;
+		height: 43px;
+		position: fixed;
+		bottom: 0;
+		@include animacao;
+
+		.container {
+			height: auto;
+		}
+	}
+
+	.footer-mobile {
+		display: none;
+
+		@include media(){
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.btn-open-footer {
+			width: 100%;
+			height: 43px;
+			display: flex;
+			align-items: center;
+			padding: 0 15px;
+			color: $cor1;
+			font-size: 15px;
+			font-weight: $bold;
+			cursor: pointer;
+			background-color: #dfebf6;
+			@include box-sizing;
+			@include animacao;
+
+			&:after {
+				content: '';
+				margin-left: auto;
+				width: 25px;
+				height: 13px;
+				background-image: url('../img/ico-arrow-bottom.png');
+				@include rotacao(180);
+			}
+		}
+	}
+
+	&.active {
+		height: 380px;
+
+		.btn-open-footer {
+			&:after {
+				@include rotacao(0);
+			}
+		}
+	}
+
+	.row {
+		align-items: center;
+	}
+
+	.redes-sociais {
+		display: flex;
+		align-items: center;
+
+		@include media(){
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 39px 0;
+		}
+
+		h3 {
+			font-size: 18px;
+			font-weight: $bold;
+			color: #ebebeb;
+			flex: 0 0 90px;
+			
+			@include media(){
+				text-align: center;
+				flex: 0 0 100%;
+				margin-bottom: 15px;
+			}
+		}
+
+		a {
+			margin-left: 30px;
+			flex: 0 0 20px;
+			
+			@include media(){
+				margin: 0 15px;
+			}
+			
+			svg {
+				height: 20px;
+
+				* {
+					fill: #ebebeb!important;
+					@include animacao;
+				}
+			}
+
+			&:hover {
+				svg {
+					* {
+						fill: $cor3!important;
+					}
+				}
+			}
+		}
+	}
+
+	.text-institucional {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+		@include media{
+			margin-bottom: 35px;
+		}
+
+		p {
+			font-size: 15px; 
+			font-weight: $regular;
+			color: #ebebeb;
+			width: 100%;
+			margin: 0 20px 0 0;
+
+			@include media{
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
+
+	.logo-footer {
+		flex: 0 0 64px;
+		margin-left: auto;
+
+		&.logo-footer-mobile {
+			display: none;
+			margin: 35px 0 0;
+
+			@include media {
+				display: block;
+			}
+		}
+
+		@include media {
+			&:not(.logo-footer-mobile){
+				display: none;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}

@@ -1,0 +1,159 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	text-decoration: none;
+	border: 2px solid $cor-txt;
+	background-color: $cor-txt; 
+	color: #ffffff;
+	border-radius: 4px;
+	letter-spacing: 0px;
+	padding: 0 28px;
+	height: 53px;
+	line-height: normal;
+	font-size: 16px;
+	font-weight: $regular;
+	@include box-sizing;
+	@include animacao; 
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:disabled {
+		cursor: default;
+		background-color: $cor-border!important;
+		color: rgba($cor-border, .5)!important;
+		border-color: $cor-border!important;
+		opacity: .3;
+	}
+
+	&.btn-full {
+		width: 100%; 
+	}
+
+	&.btn-inline {
+		background-color: transparent;
+		border: 0;
+		color: $cor-txt;
+		height: normal;
+		height: auto;
+		padding: 0;
+		margin: 0;
+	}
+
+	&.btn-transparent {
+		background-color: transparent;
+		border-color: $cor-txt;
+		color: $cor-txt;
+	}
+
+	&.btn-default {
+		background-color: #8e8e8e;
+		border-color: #8e8e8e;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: $semi-bold;
+		text-transform: uppercase;
+		width: auto;
+	}
+	
+	&.btn-default-2 {
+		background-color: $cor3;
+		border-color: $cor3;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: $semi-bold;
+		text-transform: uppercase;
+		width: auto;
+		height: 37px;
+		border-radius: 18.5px;
+
+		&:hover {
+			background-color: $cor1;
+			border-color: $cor1;
+		}
+	}
+
+	&.btn-cards {
+		height: 44px;
+		padding: 0 30px;
+		background-color: $cor1;
+		border-color: $cor1;
+		color: #ffffff;
+		border-radius: 22px;
+	}
+
+	&.btn-saba-mais {
+		margin-top: 10px;
+		font-size: 21px;
+		font-weight: $regular;
+		width: 100%;
+		max-width: 185px;
+		float: left;
+		background-color: $cor4;
+		border-color: $cor4;
+		border-radius: 22px;
+		height: 44px;
+		text-transform: uppercase;
+		font-size: 15px;
+
+		&:hover {
+			background-color: transparent;
+			color: $cor4;
+		}
+
+		@include media(){ 
+			height: 32px;
+			max-width: 159px;
+			font-size: 12px;
+		}
+	}
+
+	&.btn-saiba-mais-2 {
+		height: 31px;
+		background-color: #ffffff;
+		border-color: #ffffff;
+		color: $cor3;
+		font-size: 13px;
+		font-weight: $bold;
+		padding: 0 18px;
+		border-radius: 16px;
+
+		img {
+			margin-left: auto;
+		}
+
+		&.style-2 {
+			color: $cor5;
+		}
+	}
+
+	&.btn-seja-associado {
+		border-color: $cor3;
+		color: #ffffff;
+		font-size: 14px;
+		border-radius: 16px;
+
+		&:hover {
+			background-color: #ffffff;
+			border-color: #ffffff;
+			color: $cor3;
+		}
+	}
+
+	&.btn-acesse-conta {
+		background-color: $cor3;
+		border-color: $cor3;
+		color: #ffffff;
+		font-size: 14px;
+		border-radius: 16px;
+		
+		&:hover {
+			background-color: #ffffff;
+			border-color: #ffffff;
+			color: $cor3;
+		}
+	}
+}
