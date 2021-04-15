@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'edertton_sescon' );
 
 /** Usuário do banco de dados MySQL */
-define( 'DB_USER', 'edertton_admin' );
+define( 'DB_USER', 'root' );
 
 /** Senha do banco de dados MySQL */
-define( 'DB_PASSWORD', 'FsoR8e6YHfO9' );
+define( 'DB_PASSWORD', '' );
 
 /** Nome do host do MySQL */
 define( 'DB_HOST', 'localhost' );
