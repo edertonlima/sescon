@@ -154,7 +154,7 @@ function post_type_materiais() {
     register_post_type( 'materiais', $args );
 }
 
-// perfil perfis de navegação
+// perfil de navegação
 add_action( 'init', 'post_type_perfis' );
 function post_type_perfis() {
 
@@ -193,7 +193,7 @@ function post_type_perfis() {
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-businessperson',
 	    'menu_position' => 5,
-	    'supports' => array('title','thumbnail','excerpt')
+	    'supports' => array('title','editor','thumbnail','excerpt')
 	  );
 
     register_post_type( 'perfis', $args );

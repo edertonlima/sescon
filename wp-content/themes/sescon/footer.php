@@ -235,6 +235,15 @@
                 //rel-menu
             });
 
+            $('.btn-acordeon li').click(function(){
+                $('.btn-acordeon li').removeClass('destaque');
+                $(this).addClass('destaque');
+                //$(this).attr('var-acordion');
+
+                $('.content-acordeon').slideUp();
+                $('#'+($(this).attr('var-acordion'))).slideDown();
+            });
+
             $('.btn-mobile').click(function(){
                 $('.nav-mobile').toggleClass('active');
             });

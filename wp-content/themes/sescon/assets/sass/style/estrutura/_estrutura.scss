@@ -127,9 +127,132 @@ body {
 			margin-bottom: 5px;
 		}
 	}
+
+	&--header-single {
+		min-height: 573px;
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		padding: 0px 0 30px;
+
+		.container {
+			position: relative;
+			z-index: 1;
+			display: flex;
+			align-items: flex-end;
+		}
+		
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			height: 30%;
+			width: 100%;
+			@include gradiente(180,#000000,rgba(#000000, 0%));
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+			height: 30%;
+			width: 100%;
+			@include gradiente(180,rgba(#000000, 0%),rgba(#000000, 60%));
+		}
+
+		h1, span {
+			display: block;
+			width: 100%;
+			color: #ffffff;
+		}
+
+		h1 {
+			font-size: 48px;
+			font-weight: $medium;
+			margin-bottom: 70px;
+		}
+
+		.subtitulo {
+			font-size: 26px;
+			font-weight: $light;
+			margin-bottom: 5px;
+		}
+	}
+
+	&.box-section-content-txt {
+		padding: 100px 0;
+
+		.row {
+			align-items: center;
+		}
+
+		.img-principal {
+			width: 100%;
+		}
+	}
+
+	&.box-section-acordeon {
+		.row {
+			//align-items: center;
+		}
+		.col-9 {
+			padding: 25px 0 25px 25px;
+		}
+		.btn-acordeon {
+			//height: 100%;
+			background-color: #dfebf6;
+			padding: 25px;
+			border-radius: 0 20px 20px 0;
+			margin-left: -$padding-container;
+			margin-top: 0!important;
+			@include box-sizing;
+
+			@include media(900){
+				margin-left: -$padding-container-mobile;
+			}
+
+			li {
+				@include animacao-off;
+				a {
+					cursor: pointer;
+					@include animacao-off;
+				}
+			}
+		}
+
+		.content-acordeon {
+			display: none;
+
+			&:first-child {
+				display: block;
+			}
+		}
+
+		h2 {
+			display: block;
+			text-align: center;
+			font-size: 52px;
+			line-height: 52px;
+			margin-bottom: 40px;
+		}
+
+		p {
+			font-size: 15px;
+			line-height: 19px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
 }
 
-/*
+
 .content-txt {
 	width: 100%;
 	margin: 0 auto;
@@ -151,7 +274,10 @@ body {
 	}
 
 	p {
-
+		color: #898989;
+		font-size: 17px;
+		line-height: 24px;
+		font-weight: $regular;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -182,7 +308,6 @@ body {
 		}
 	}
 }
-*/
 
 .clear {
 	@include clear;

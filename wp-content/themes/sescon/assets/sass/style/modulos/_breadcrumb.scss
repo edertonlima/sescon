@@ -1,0 +1,41 @@
+.breadcrumb {
+    margin-left: auto;
+    display: flex;
+
+    li {
+        display: flex;
+        align-items: center;
+
+        a {
+            font-weight: $light;
+            font-size: 14px;
+            color: #ffffff;
+
+            &:hover {
+                color: $cor3;
+            }
+        }
+
+        span {
+            font-weight: $bold;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        &:after {
+            content: '>';
+            margin: 0 5px;
+            font-weight: $light;
+            font-size: 14px;
+            color: #ffffff;
+            position: relative;
+            top: 1px;
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
