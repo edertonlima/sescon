@@ -244,6 +244,14 @@
                 $('#'+($(this).attr('var-acordion'))).slideDown();
             });
 
+            $('.faq h3').click(function(){
+                $('.faq h3').removeClass('active');
+                $('.faq p').slideUp();
+
+                $(this).addClass('active');
+                $(this).parent().find('p').slideDown();
+            });
+
             $('.btn-mobile').click(function(){
                 $('.nav-mobile').toggleClass('active');
             });

@@ -136,11 +136,20 @@ body {
 		align-items: flex-end;
 		padding: 0px 0 30px;
 
+		@include media(){
+			min-height: 400px;
+		}
+
 		.container {
 			position: relative;
 			z-index: 1;
 			display: flex;
 			align-items: flex-end;
+
+			@include media(){
+				flex-direction: column;
+				align-items: flex-start;
+			}
 		}
 		
 		&:before {
@@ -186,34 +195,70 @@ body {
 
 	&.box-section-content-txt {
 		padding: 100px 0;
-
+		
+		@include media(){
+			padding: 50px 0;
+		}
 		.row {
 			align-items: center;
 		}
 
 		.img-principal {
 			width: 100%;
+
+			@include media(){
+				margin-top: 30px;
+			}
 		}
 	}
 
 	&.box-section-acordeon {
+		@include media(){
+			padding: 50px 0;
+		}
+		.container {
+			@include media(){
+				padding: 0;
+			}
+		}
 		.row {
 			//align-items: center;
+			@include media(){
+				margin: 0;
+			}
 		}
 		.col-9 {
 			padding: 25px 0 25px 25px;
+			@include media(){
+				padding: 0;
+			}
+		}
+		.col-3, .col-4 {
+			@include media(){
+				padding: 0;
+			}
 		}
 		.btn-acordeon {
 			//height: 100%;
+			width: auto;
 			background-color: #dfebf6;
-			padding: 25px;
+			padding: 25px 25px 25px 55px;
 			border-radius: 0 20px 20px 0;
 			margin-left: -$padding-container;
 			margin-top: 0!important;
 			@include box-sizing;
 
+			@include media(){
+				display: block;
+				//flex-wrap: wrap;
+				margin: 0px;
+				border-radius: 0;
+				padding: 0;
+			}
+
 			@include media(900){
-				margin-left: -$padding-container-mobile;
+				//margin: 0 -$padding-container-mobile;
+				padding: $padding-container-mobile;
 			}
 
 			li {
@@ -221,6 +266,10 @@ body {
 				a {
 					cursor: pointer;
 					@include animacao-off;
+				}
+
+				@include media(){
+					//flex: 0 0 50%;
 				}
 			}
 		}
@@ -230,6 +279,12 @@ body {
 
 			&:first-child {
 				display: block;
+			}
+
+			@include media(){
+				.content-txt {
+					padding: 50px 15px 15px;
+				}
 			}
 		}
 
@@ -248,6 +303,62 @@ body {
 
 		img {
 			width: 100%;
+
+			@include media(){
+				margin-top: 20px;
+			}
+		}
+	}
+
+	&.box-section-faq {
+		background-image: url(../img/bg-page-1.jpg);
+		background-position: top left;
+		background-repeat: no-repeat;
+
+		h2 {
+			display: block;
+			text-align: center;
+			font-size: 52px;
+			line-height: 52px;
+			margin-bottom: 40px;
+		}
+		.faq {
+			width: 100%;
+			max-width: 980px;
+			margin: 0 auto;
+
+			li {
+				border: 1px solid $cor1;
+				border-radius: 20px;
+				background-color: #ffffff;
+				margin-top: 20px;
+				overflow: hidden;
+
+				h3 {
+					min-height: 55px;
+					background-color: #ffffff;
+					padding: 15px;
+					font-size: 16px;
+					line-height: 18px;
+					font-weight: $bold;
+					color: $cor1;
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+					@include box-sizing;
+					@include animacao;
+
+					&.active {
+						background-color: $cor1;
+						color: #ffffff;
+					}
+				}
+
+				p {
+					padding: 15px 15px 30px;
+					display: none;
+				}
+			}
 		}
 	}
 }
