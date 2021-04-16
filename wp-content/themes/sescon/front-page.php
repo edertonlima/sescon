@@ -460,76 +460,62 @@
             <div class="row">
                 <div class="col-12">
 
-                    <span class="sub-titulo">Canais Principais</span>
-                    <h2 class="item-mobile">Ganhe tempo!</h2>        
-                    <p class="legenda-secundario">Navegue pelos nossos canais</p>
+                    <span class="sub-titulo"><?php the_field('titulo-canais-principais'); ?></span>
+                    <h2 class="item-mobile"><?php the_field('subtitulo-canais-principais'); ?></h2>
+                    <?php if(get_field('texto-canais-principais')){ ?>   
+                        <p class="legenda-secundario"><?php the_field('texto-canais-principais'); ?></p>
+                    <?php } ?>
+
+                    <?php if( have_rows('item-canais-principais') ):
+                        while( have_rows('item-canais-principais') ) : the_row(); ?>
+
+                            <div class="cards cards--txt style-1" style="border-color: <?php the_sub_field('cor'); ?>">
+                                <div class="img-cards">
+                                    <img src="<?php the_sub_field('icone'); ?>" alt="">
+                                </div>
+                                <h3 style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></h3>
+                                <p><?php the_sub_field('texto'); ?></p>
+                                <a href="<?php the_sub_field('url'); ?>" class="btn-link btn-institucional" title="Saiba mais" style="color: <?php the_sub_field('cor'); ?>">Saiba mais</a>
+                            </div>
+
+                        <?php endwhile;
+                    endif; ?>
                     
-                    <div class="cards cards--txt style-1">
-                        <div class="img-cards">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-card-txt-1.png" alt="">
-                        </div>
-                        <h3>central de Ajuda</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                        <a href="" class="btn-link btn-institucional" title="Conheça">Saiba mais</a>
-                    </div>
-                    <div class="cards cards--txt style-3">
-                        <div class="img-cards">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-card-txt-2.png" alt="">
-                        </div>
-                        <h3>Fale com o SESCON-SP</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                        <a href="" class="btn-link btn-institucional" title="Conheça">Saiba mais</a>
-                    </div>
-                    <div class="cards cards--txt style-5">
-                        <div class="img-cards">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-card-txt-3.png" alt="">
-                        </div>
-                        <h3>Portal de Notícias</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                        <a href="" class="btn-link btn-institucional" title="Conheça">Saiba mais</a>
-                    </div>
-                    <div class="cards cards--txt style-5">
-                        <div class="img-cards">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-card-txt-3.png" alt="">
-                        </div>
-                        <h3>Nossas Soluções</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                        <a href="" class="btn-link btn-institucional" title="Conheça">Saiba mais</a>
-                    </div>
-                    <div class="cards cards--txt style-4">
-                        <div class="img-cards">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-card-txt-3.png" alt="">
-                        </div>
-                        <h3>Institucional</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                        <a href="" class="btn-link btn-institucional" title="Conheça">Saiba mais</a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="box-section slide-home-mobile">
-        <div class="container">
-            <div class="slide-destaque" id="slide-home-mobile">
-                <div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/img-home-modal.jpg');"></div>
-                <div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/img-home-modal.jpg');"></div>
-            </div>
-        </div>
-    </section>
+    
+    <?php 
+        $images = get_field('slide-mobile-boco-home');
+        if( $images ): ?>
+            <section class="box-section slide-home-mobile">
+                <div class="container">
+                    <div class="slide-destaque" id="slide-home-mobile">
+                        <?php foreach( $images as $image ): ?>
+                            <div class="item" style="background-image: url('<?php echo $image; ?>"></div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </section>
+        <?php endif;
+    ?>
 
     <section class="box-section box-sescon-sp" style="background-color: #f8f6f6;">
         <div class="container">
             <div class="row">
                 <div class="col-6 flex-col-center">
-                    <span class="sub-titulo">Sindicato Patronal</span>
-                    <h2>Quem é o SESCON-SP?</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint </p>
-                    <a href="" class="btn-link btn-institucional btn-style-1" title="Conheça">Conheça</a>
-                    <a href="" class="btn-link btn-institucional btn-style-3" title="Fale com a gente!">Fale com a gente!</a>
+                    <span class="sub-titulo"><?php the_field('titulo-bloco-final'); ?></span>
+                    <h2><?php the_field('subtitulo-bloco-final'); ?></h2>
+                    <p><?php the_field('texto-bloco-final'); ?></p>
+                    <?php if( have_rows('links-bloco-final') ):
+                        while( have_rows('links-bloco-final') ) : the_row(); ?>
+                            <a href="<?php the_sub_field('url'); ?>" class="btn-link btn-institucional btn-style-1" title="<?php the_sub_field('titulo'); ?>"><?php the_sub_field('titulo'); ?></a>
+                        <?php endwhile;
+                    endif; ?>
                 </div>
                 <div class="col-6">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/img-home-3.jpg" class="img-block" alt="">
+                    <img src="<?php the_field('imagem-bloco-final'); ?>" class="img-block" alt="<?php the_field('titulo-bloco-final'); ?>">
                 </div>
             </div>
         </div>

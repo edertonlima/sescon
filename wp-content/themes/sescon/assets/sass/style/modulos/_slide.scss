@@ -213,6 +213,10 @@
             border: none;
             height: 260px;
 
+            @include media(){
+                height: auto;
+            }
+
             .item {
                 height: 260px;
                 position: relative;

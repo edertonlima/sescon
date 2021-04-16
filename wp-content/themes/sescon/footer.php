@@ -1,4 +1,4 @@
-<?php
+    <?php
         if( have_rows('menu-footer','option') ): ?>
 
             <section class="box-section no-padding box-nav-secundario">
@@ -6,28 +6,55 @@
                     <div class="container">
                         <ul>
 
-                            <?php while( have_rows('menu-footer','option') ) : the_row(); ?>
+                            <?php 
+                                $item_menu = 1;
+                                while( have_rows('menu-footer','option') ) : the_row(); ?>
 
-                                <li>
-                                    <h4>
-                                        <?php the_sub_field('titulo-item-menu-footer'); ?>
-                                        <span class="material-icons-outlined">expand_more</span>
-                                    </h4>
+                                    <li>
+                                        <h4 rel-menu="sub-menu-<?php echo $item_menu; ?>">
+                                            <?php the_sub_field('titulo-item-menu-footer'); ?>
+                                            <span class="material-icons-outlined">expand_more</span>
+                                        </h4>
 
-                                    <?php if( have_rows('item-menu-footer') ): ?>
-                                        <ul>
-                                            <?php while( have_rows('item-menu-footer') ) : the_row(); ?>
-                                                <li><a href="<?php the_sub_field('link-item-menu-footer'); ?>" title="<?php the_sub_field('titulo-item-menu-footer'); ?>">
-                                                    <span class="material-icons-outlined">east</span>
-                                                    <?php the_sub_field('titulo-item-menu-footer'); ?>
-                                                </a></li>
-                                            <?php endwhile; ?>
-                                        </ul>
-                                    <?php endif; ?>
-                                </li>
+                                        <?php if( have_rows('item-menu-footer') ): ?>
+                                            <ul>
+                                                <?php while( have_rows('item-menu-footer') ) : the_row(); ?>
+                                                    <li><a href="<?php the_sub_field('link-item-menu-footer'); ?>" title="<?php the_sub_field('titulo-item-menu-footer'); ?>">
+                                                        <span class="material-icons-outlined">east</span>
+                                                        <?php the_sub_field('titulo-item-menu-footer'); ?>
+                                                    </a></li>
+                                                <?php endwhile; ?>
+                                            </ul>
+                                        <?php endif; ?>
+                                    </li>
 
-                            <?php endwhile; ?>
+                                <?php $item_menu++;
+                                endwhile;
+                            ?>
 
+                        </ul>
+
+                        <ul class="menu-colunas">
+                            <?php 
+                                $item_menu = 1;
+                                while( have_rows('menu-footer','option') ) : the_row(); ?>
+
+                                    <li>
+                                        <?php if( have_rows('item-menu-footer') ): ?>
+                                            <ul id="sub-menu-<?php echo $item_menu; ?>">
+                                                <?php while( have_rows('item-menu-footer') ) : the_row(); ?>
+                                                    <li><a href="<?php the_sub_field('link-item-menu-footer'); ?>" title="<?php the_sub_field('titulo-item-menu-footer'); ?>">
+                                                        <span class="material-icons-outlined">east</span>
+                                                        <?php the_sub_field('titulo-item-menu-footer'); ?>
+                                                    </a></li>
+                                                <?php endwhile; ?>
+                                            </ul>
+                                        <?php endif; ?>
+                                    </li>
+
+                                <?php $item_menu++;
+                                endwhile;
+                            ?>
                         </ul>
                     </div>
                 </nav>
@@ -195,8 +222,17 @@
             }); 
 
             $('.nav-secundario h4').click(function(){
-                $(this).parent().toggleClass('active');
-                $(this).parent().find('ul').slideToggle('');
+                $('.nav-secundario li').removeClass('active');
+                $(this).parent().addClass('active');
+                //$(this).parent().find('ul').slideToggle('');
+
+                //$('#'+$(this).attr('rel-menu')).addClass('active');
+                
+                //$('.nav-secundario .menu-colunas ul').slideToggle();
+                $('.menu-colunas ul').slideUp();
+                $('#'+($(this).attr('rel-menu'))).slideDown();
+
+                //rel-menu
             });
 
             $('.btn-mobile').click(function(){

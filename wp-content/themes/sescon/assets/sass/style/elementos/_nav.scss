@@ -291,6 +291,25 @@
 					}
 				}
 			}
+
+			&.menu-colunas {
+				flex-wrap: wrap;
+
+				li {
+					width: 100%;
+					flex: 0 0 100%;
+					display: block;
+				}
+
+				ul {
+					width: 100%;
+
+					li {
+						display: inline-block;
+						width: 33%;
+					}
+				}
+			}
 		}
 	}
 

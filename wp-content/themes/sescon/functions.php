@@ -302,15 +302,7 @@ if( function_exists('acf_add_options_page') ) {
         'position' => 8
     ));
 
-    acf_add_options_page(array(
-        'page_title'  => 'Blocos de menu posicionados no rodapé',
-        'menu_title'  => 'Menu Footer',
-        'menu_slug'   => 'menu-footer',
-        'capability'  => 'edit_posts',
-        'redirect'    => true,
-        'icon_url' => 'dashicons-menu',
-        'position' => 9
-    ));
+
 
     acf_add_options_page(array(
         'page_title'  => 'Minhas redes sociais',
@@ -322,9 +314,11 @@ if( function_exists('acf_add_options_page') ) {
         'position' => 9
     ));
 
-    acf_add_options_page(array(
+	
+	// configurações gerais
+	acf_add_options_page(array(
 	  'page_title'  => 'Informações gerais do meu site',
-	  'menu_title'  => 'Configurações Gerais',
+	  'menu_title'  => 'Configurações',
 	  'menu_slug'   => 'configuracoes-gerais',
 	  'capability'  => 'edit_posts',
 	  'redirect'    => false,
@@ -349,6 +343,17 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'  => 'Banners',
 		'parent_slug' => 'configuracoes-gerais',
 	));
+
+	acf_add_options_page(array(
+        'page_title'  => 'Blocos de menu posicionados no rodapé',
+        'menu_title'  => 'Menu Footer',
+        //'menu_slug'   => 'menu-footer',
+        //'capability'  => 'edit_posts',
+        //'redirect'    => true,
+        'icon_url' => 'dashicons-menu',
+        //'position' => 9
+		'parent_slug' => 'configuracoes-gerais',
+    ));
 }
 
 ?>
