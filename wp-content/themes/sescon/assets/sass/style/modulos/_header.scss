@@ -4,6 +4,8 @@
 
 	.header-top {
 		height: 43px;
+		position: relative;
+		z-index: 99999;
 		@include gradiente(90,$cor2,$cor1);
 
 		.container {
@@ -14,14 +16,37 @@
 
 	.header-nav {
 		position: absolute;
+		//position: fixed;
 		top: 75px;
 		left: 0;
 		width: 100%;
+		background-color: transparent;
+		//@include animacao;
+		z-index: 9999;
 	}
 
 	.content-nav {
 		display: flex;
 		align-items: center;
+
+		.logo {
+			a {
+				position: relative;
+				display: block;
+
+				img {
+					@include animacao;
+				}
+
+				.logo-2 {
+					position: absolute;
+					width: 100%;
+					opacity: 0;
+					left: 0;
+					top: 0;
+				}
+			}
+		}
 
 		.nav {
 			margin-left: auto;
@@ -88,6 +113,11 @@
 	.header-mobile {
 		display: none;
 		height: 53px;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
 		@include gradiente(90,$cor2,$cor1);
 		
 		.container {
@@ -136,6 +166,70 @@
 
 		.header-mobile {
 			display: block;
+		}
+	}
+}
+
+body  {
+	&.category, &.archive, &.blog {
+		&:not(.scroll){
+			.header {
+				.mini-search {
+					input {
+						color: $cor1;
+						border-color: $cor1;
+
+						@include placeholder{
+							color: $cor1;
+							@include animacao;
+						}
+
+						&:focus {
+							border-color: $cor3;
+
+							@include placeholder{
+								color: $cor3;
+							}
+						}
+					}
+
+					button span {
+						color: $cor1;
+					}
+
+					input {
+						&:focus + button {
+							span {
+								color: $cor3;
+							}
+						}
+					}
+				}
+
+				.content-nav .logo a img {
+					&:not(.logo-2){
+						opacity: 0;
+					}
+
+					&.logo-2 {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	&.scroll {
+		.header .header-nav {
+			position: fixed;
+			top: 0;
+			@include gradiente(90,$cor2,$cor1);
+
+			.logo {
+				img {
+					width: 43px;
+					padding: 10px 0;
+				}
+			}
 		}
 	}
 }

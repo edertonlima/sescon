@@ -9,7 +9,7 @@
             $imagem = $imagem_array[0];
         ?>
 
-        <section class="box-section box-section--image box-section--header-single" style="background-image: url('<?php echo $imagem; ?>');">
+        <section class="box-section box-section--image box-section--header-page box-section--header-single-solucoes" style="background-image: url('<?php echo $imagem; ?>');">
             <div class="container">
                 <div class="titulos">
                     <span class="subtitulo"><?php the_field('subtitulo');?></span>
@@ -18,7 +18,7 @@
 
                 <ul class="breadcrumb">
                     <li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-                    <li><a href="<?php echo get_home_url(); ?>" title="Produtos e Serviços">Produtos e Serviços</a></li>
+                    <li><a href="<?php echo get_home_url(); ?>/perfis" title="Perfis">Perfis</a></li>
                     <li><span><?php the_title(); ?></span></li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
                 <div class="row">
 
                     <div class="col-6">
-                        <div class="content-txt">
+                        <div class="content-txt page-padrao">
                             <?php the_content(); ?>
                         </div>
                     </div>

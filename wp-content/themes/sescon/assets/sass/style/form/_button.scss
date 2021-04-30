@@ -33,6 +33,56 @@
 		width: 100%; 
 	}
 
+	&.btn-list-post {
+		background-color: $cor3;
+		color: #ffffff;
+		border-color: $cor3;
+		font-size: 12px;
+		line-height: normal;
+		text-transform: uppercase;
+		height: 30px;
+		border-radius: 20px;
+		width: 135px;
+
+		@include media {
+			font-size: 10px;
+			height: 25px;
+			width: 105px;
+			padding: 0;
+		}
+
+		&:hover {
+			background-color: transparent;
+			color: $cor3;
+		}
+	}
+
+	&.btn-carregar-mais {
+		background-color: $cor3;
+		color: #ffffff;
+		border-color: $cor3;
+		font-size: 12px;
+		font-weight: $bold;
+		line-height: normal;
+		text-transform: uppercase;
+		height: 30px;
+		border-radius: 20px;
+		width: 170px;
+		margin: 30px auto 0;
+
+		@include media {
+			font-size: 10px;
+			height: 25px;
+			width: 105px;
+			padding: 0;
+		}
+
+		&:hover {
+			background-color: transparent;
+			color: $cor3;
+		}
+	}
+
 	&.btn-inline {
 		background-color: transparent;
 		border: 0;
@@ -41,6 +91,28 @@
 		height: auto;
 		padding: 0;
 		margin: 0;
+	}
+
+	&.btn-materiais {
+		margin-top: 50px;
+		background-color: $cor3;
+		border-color: $cor3;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: $semi-bold;
+		text-transform: uppercase;
+		width: 250px;
+		height: 37px;
+		border-radius: 18.5px;
+
+		&:hover {
+			background-color: $cor1;
+			border-color: $cor1;
+		}
+
+		@include media {
+			margin: 50px auto 0;
+		}
 	}
 
 	&.btn-transparent {

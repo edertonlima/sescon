@@ -33,6 +33,10 @@
 		height: 165px;
 		position: relative;
 
+		@include media {
+			height: 220px;
+		}
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -72,5 +76,189 @@
 		line-height: 22px;
 		font-weight: $semi-bold;
 		color: #898989;
+	}
+
+	&--vertical {
+		display: flex;
+		margin-bottom: 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.list-post--vertical--img {
+			flex: 0 0 calc(50% - 10px);
+			margin-right: 20px;
+			position: relative;
+			height: 185px;
+
+			@include media {
+				flex: 0 0 calc(40% - 10px);
+				margin-right: 10px;
+				height: 135px;
+			}
+
+			&.list-post-video {
+				&:after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					width: 35px;
+					height: 45px;
+					background-image: url('../img/play-button-br.png');
+				}
+			}
+
+			.img-cards {
+				position: absolute;
+				bottom: 15px;
+				right: 15px;
+				z-index: 2;
+				width: 40px;
+				height: 40px;
+			}
+
+			img {
+				object-fit: cover;
+				object-position: center;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.list-post--vertical--conteudo {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: center;
+
+			.categoria, h3, p {
+				//flex: 0 0 100%;
+			}
+
+			.categoria {
+				color: $cor-txt;
+			}
+
+			h3 {
+				a {
+					color: $cor1;
+					font-size: 24px;
+					line-height: 28px;
+					display: block;
+
+					@include media {
+						font-size: 19px;
+						line-height: 22px;
+					}
+				}
+			}
+
+			p {
+				font-size: 15px;
+				line-height: 20px;
+
+				@include media {
+					font-size: 13px;
+					line-height: 15px;
+					margin-top: 5px;
+				}
+			}
+
+			.btn {
+
+			}
+		}
+	}
+}
+
+body {
+	&.category, &.archive {
+		.cards--destaque {
+			margin: 10px 0;
+		}
+	}
+}
+
+.slide-blog {
+	.col-3 {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0;
+	}
+
+	.slick-arrow {
+		background-color: $cor1;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		position: absolute;
+		//top: 50%;
+		bottom: 0px;
+		right: 20px;
+		transform: translateY(-50%);
+		cursor: pointer;
+		z-index: 999;
+		@include animacao;
+
+		@include media {
+			bottom: 20px;
+		}
+
+		&:hover {
+			background-color: $cor3;
+		}
+
+		.arrow-ico {
+			color: #ffffff;
+			width: 100%;
+			height: 100%;
+
+			span {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+			}
+		}
+
+		&.slick-prev {
+			//left: 20px;
+			right: 60px;
+		}
+
+		&.slick-next {
+			//right: 20px;
+		}
+
+		&.slick-disabled {
+			cursor: default;
+			opacity: .5;
+
+			&:hover {
+				background-color: $cor1;
+			}
+		}
+	}
+}
+
+.row-content-portal {
+	margin-bottom: 20px;
+
+	&--destaque {
+		> .col-3 {
+			display: flex;
+			align-items: center;
+	
+			.list-post {
+				width: 100%;
+
+				@include media {
+					margin-bottom: 20px;
+				}
+			}
+		}
 	}
 }

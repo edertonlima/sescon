@@ -67,7 +67,7 @@
                     <ul>
                         <li>
                             <a href="tel:<?php the_field('telefone-principal','option'); ?>" title="<?php the_field('telefone-principal','option'); ?>" class="tel-header">
-                            <img class="ico-menu" src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-telefone.png" alt="<?php the_field('telefone-principal','option'); ?>" /> <span><?php the_field('telefone-principal','option'); ?></span>
+                                <img class="ico-menu" src="<?php echo get_template_directory_uri(); ?>/assets/img/ico-telefone.png" alt="<?php the_field('telefone-principal','option'); ?>" /> <span><?php the_field('telefone-principal','option'); ?></span>
                             </a>
                         </li>
 
@@ -102,95 +102,101 @@
                         <div class="logo">
                             <a href="<?php echo get_home_url(); ?>">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-sescon-sp.png" alt="">
+                                <img class="logo-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-sescon-sp-azul.png" alt="">
                             </a>
                         </div>
                         <nav class="nav nav-principal">
                             <ul>
+                                <li>
+                                    <a href="<?php echo get_home_url(); ?>" title="INICIO">INICIO</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo get_home_url(); ?>/solucoes" title="PRODUTOS E SERVIÇOS"> 
+                                        <span>PRODUTOS E </span>SERVIÇOS
+                                    </a>
 
+                                    <?php
+                                        $query = array(
+                                            'post_type' => 'solucoes'
+                                        );
+                                        query_posts( $query );        
+                                        if( have_posts() ){ ?>
+                                            <ul>
 
+                                                <?php while ( have_posts() ) : the_post(); ?>
+                                                    <li>
+                                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                                    </li>
+                                                <?php endwhile;
+                                                wp_reset_query(); ?>
+                                            
+                                            </ul>
+                                        <?php }
+                                    ?>
+                                </li>
 
-                        <?php 
-                            $array_menu = wp_get_nav_menu_items('header');
-                            $submenu = false;
-
-                            foreach ($array_menu as $item) { ?>
-
-                                <?php if($item->menu_item_parent): 
-                                    if(!$submenu):
-                                        $submenu = true;
-                                        echo '<ul>';
-                                    endif;
-                                elseif ($submenu):
-                                    $submenu = false;
-                                    echo '</li></ul>';
-
-                                    else:
-                                        echo '</li>';
-                                endif; ?>
-
-                                    <li>
-                                        <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>"> 
-                                            <?php 
-                                                if($item->menu_item_parent):
-                                                    echo $item->title;
-                                                else:
-                                                    
-                                                    $a_nav = explode(' ', $item->title);
-                                                    $a_count = count($a_nav)-1;
-                                                    if(count($a_nav) > 1){
-                                                        echo '<span>';
-                                                            for($i=0; $i < $a_count; $i++){
-                                                                echo $a_nav[$i] . ' ';
-                                                            }
-                                                        echo '</span>';
-                                                        echo $a_nav[$a_count];
-                                                    }else{
-                                                        echo $item->title;
-                                                    }
-
-                                                endif;
-                                            ?>
-                                        </a>
-                                    
-                                    <?php if($submenu):
-                                        echo '</li>';
-                                    endif; ?>
-
-                                <?php
-                            }
-                        ?>
-
-
-
-                                <?php /*
+                                <?php 
                                     $array_menu = wp_get_nav_menu_items('header');
-                                    
-                                    foreach ($array_menu as $item) {
-                                        if (empty($m->menu_item_parent)) { ?>
+                                    $submenu = false;
+
+                                    foreach ($array_menu as $item) { ?>
+
+                                        <?php if($item->menu_item_parent): 
+                                            if(!$submenu):
+                                                $submenu = true;
+                                                echo '<ul>';
+                                            endif;
+                                        elseif ($submenu):
+                                            $submenu = false;
+                                            echo '</li></ul>';
+
+                                            else:
+                                                echo '</li>';
+                                        endif; ?>
 
                                             <li>
-                                                <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>" data-text="<?php echo substr($item->title, strrpos($item->title, ' ') + 1); ?>"> 
+                                                <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>"> 
                                                     <?php 
-                                                        $a_nav = explode(' ', $item->title);
-                                                        $a_count = count($a_nav)-1;
-                                                        if(count($a_nav) > 1){
-                                                            echo '<span>';
-                                                                for($i=0; $i < $a_count; $i++){
-                                                                    echo $a_nav[$i] . ' ';
-                                                                }
-                                                            echo '</span>';
-                                                            echo $a_nav[$a_count];
-                                                        }else{
+                                                        if($item->menu_item_parent):
                                                             echo $item->title;
-                                                        }
+                                                        else:
+                                                            
+                                                            $a_nav = explode(' ', $item->title);
+                                                            $a_count = count($a_nav)-1;
+                                                            if(count($a_nav) > 1){
+                                                                echo '<span>';
+                                                                    for($i=0; $i < $a_count; $i++){
+                                                                        echo $a_nav[$i] . ' ';
+                                                                    }
+                                                                echo '</span>';
+                                                                echo $a_nav[$a_count];
+                                                            }else{
+                                                                echo $item->title;
+                                                            }
+
+                                                        endif;
                                                     ?>
                                                 </a>
-                                            </li>
+                                            
+                                            <?php if($submenu):
+                                                echo '</li>';
+                                            endif; ?>
 
-                                        <?php }
-                                    }*/
+                                        <?php
+                                    }
+                                ?> 
+                                
+                                <?php
+                                    if( is_home() || is_category() || is_singular('post') || is_singular('videos') || is_singular('noticias') || is_singular('materiais') ){
+                                        $class_aprendizagem = 'active';
+                                    }
                                 ?>
 
+                                <li class="<?php echo $class_aprendizagem; ?>">
+                                    <a href="<?php echo get_home_url(); ?>/portal" title="INFORMAÇÃO"> 
+                                        <span>APRENDIZAGEM E </span>INFORMAÇÃO
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

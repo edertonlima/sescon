@@ -21,7 +21,9 @@
                             $imagem_array = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' );
                             $imagem = $imagem_array[0];
                         ?>
-                        <a href="<?php the_field('link-banner'); ?>" class="item" style="background-image: url('<?php echo $imagem; ?>');"></a>
+                        <a href="<?php the_field('link-banner'); ?>" class="item" style="background-image: url('<?php //echo $imagem; ?>');" title="<?php the_title(); ?>">
+                            <img src="<?php echo $imagem; ?>" alt="<?php the_title(); ?>" class="img-slide">
+                        </a>
 
                     <?php endwhile;
                     wp_reset_query(); ?>

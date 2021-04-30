@@ -52,6 +52,7 @@ h2 {
 		text-transform: uppercase;
 		display: flex;
 		align-items: center;
+		white-space: nowrap;
 
 		&:after {
 			content: '';
@@ -101,6 +102,12 @@ p {
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+
+	&.erro-conteudo {
+		font-size: 14px;
+		text-align: center;
+		margin: 50px 0;
 	}
 
 	&.resumo {

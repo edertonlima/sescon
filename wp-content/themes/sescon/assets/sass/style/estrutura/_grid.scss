@@ -5,6 +5,10 @@
 	flex-wrap: wrap;
 	@include clear();
 
+	&#carregar-mais {
+		height: auto;
+	}
+
 	margin-right: ($padding-col)*(-1);
 	margin-left: ($padding-col)*(-1);
 

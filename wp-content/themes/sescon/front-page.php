@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <?php if( have_rows('slide-principal') ): 
+        <?php if( have_rows('slide-principal') ):  
             $playerVideo = false; ?>
             <div class="slide-home" id="slide-home">
                 <?php while( have_rows('slide-principal') ) : the_row(); ?>
@@ -246,131 +246,10 @@
 
         <?php }
     ?>
-
-    <?php
-    	$query = array(
-            'posts_per_page' => 4,
-			'post_type' => 'videos'
-		);
-	    query_posts( $query );        
-        if( have_posts() ){ ?>
-
-            <section class="box-section box-post-video">
-                <div class="container">
-                    <h2 class="traco">Vídeo</h2>
-
-                    <div class="row">
-                        <?php while ( have_posts() ) : the_post(); ?>
-
-                            <div class="col-3">
-                                <a href="<?php the_permalink(); ?>" class="list-post list-post-video" title="<?php the_title(); ?>">
-                                    <div class="item-img">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/img-video-1.jpg" alt="<?php the_title(); ?>">
-                                    </div>
-                                    <span><?php echo get_the_date(); ?></span>
-                                    <h3><?php the_title(); ?></h3>
-                                </a>
-                            </div>
-
-                        <?php endwhile;
-					    wp_reset_query(); ?>
-
-                    </div>
-                </div>
-            </section>
-
-        <?php }
-    ?>
-
-
-    <?php
-    	$query = array(
-            'posts_per_page' => 4,
-			'post_type' => 'noticias'
-		);
-	    query_posts( $query );        
-        if( have_posts() ){ ?>
-
-            <section class="box-section box-post-noticias">
-                <div class="container">
-                    <h2 class="traco">notícias</h2>
-
-                    <div class="row">
-                        <?php while ( have_posts() ) : the_post();
-
-                            get_template_part( 'content/noticia' );
-
-                        endwhile;
-					    wp_reset_query(); ?>
-                    </div>
-
-                </div>
-            </section>
-
-        <?php }
-    ?>
-
-<?php
-    	$query = array(
-            'posts_per_page' => 3,
-			'post_type' => 'materiais'
-		);
-	    query_posts( $query );        
-        if( have_posts() ){ ?>
-
-            <section class="box-section box-newsletter" style="background-image: url('<?php the_field('bg-materiais','option'); ?>');">
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col-9">
-                            <div class="row">
-
-                                <?php while ( have_posts() ) : the_post(); ?>
-
-                                    <div class="col-4">
-                                        <div class="cards cards--img">
-                                            <div class="img-cards">
-                                                <img src="<?php the_field('imagem-list'); ?>" alt="<?php the_title(); ?>">
-                                            </div>
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-default" title="Saiba Mais">Saiba Mais</a>
-                                        </div>
-                                    </div>
-
-                                <?php endwhile;
-                                wp_reset_query(); ?>
-
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <form action="" class="newsletter">
-                                <span class="sub-titulo cor-branco">Assine e receba nossa</span>
-                                <h2 class="cor-branco">Newsletter</h2>
-                            
-                                <fieldset>
-                                    <input type="text" placeholder="Nome">
-                                </fieldset>
-                                <fieldset>
-                                    <input type="text" placeholder="E-mail">
-                                </fieldset>
-                                <fieldset>
-                                    <input type="text" placeholder="Cidade">
-                                </fieldset>
-                                <fieldset>
-                                    <input type="text" placeholder="Assunto">
-                                </fieldset>
-                                <fieldset>
-                                    <button type="submit" class="btn btn-full btn-enviar">CADASTRAR AGORA</button>
-                                </fieldset>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-        <?php }
-    ?>
+    
+    <?php get_template_part( 'content/section-videos' ); ?>
+    <?php get_template_part( 'content/section-noticias' ); ?>    
+    <?php get_template_part( 'content/section-materiais' ); ?>
 
     <section class="box-section no-padding box-canais-principais">
         <div class="container">

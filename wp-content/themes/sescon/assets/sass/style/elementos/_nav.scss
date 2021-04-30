@@ -142,17 +142,22 @@
 						font-weight: $light;
 						display: block;
 						color: #ffffff;
+						@include animacao;
 					}
 				}
 
-				&:hover {
+				&:hover, &.active {
 					a {
 						color: $cor3;
+						//cursor: default;
+
 						span {
 							color: #ffffff;
 						}
 					}
+				}
 
+				&:hover {
 					ul {
 						display: flex;
 					}
@@ -411,6 +416,33 @@
 
 					a {
 						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+body {
+	&.category, &.archive, &.blog {
+		&:not(.scroll) {
+			.nav {
+				&.nav-principal {
+					ul li {
+						a {
+							color: $cor1;
+
+							span {
+								color: $cor1;
+							}
+						}
+
+						&:hover, &.active {
+							a {
+								color: $cor3;
+								//cursor: default;
+							}
+						}
 					}
 				}
 			}

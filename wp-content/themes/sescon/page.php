@@ -1,8 +1,3 @@
-<?php
-/**
- * Template Name: Padrão
- */
-?>
 <?php get_header(); ?>
 
 <?php if( have_posts() ){
@@ -13,22 +8,37 @@
             $imagem = $imagem_array[0];
         ?>
 
-        <section class="box-section box-section--image box-section--header-page" style="background-image: url('<?php echo $imagem; ?>');">
+        <section class="box-section box-section--image box-section--header-page box-section--header-page-padrao" style="background-image: url('<?php echo $imagem; ?>');">
             <div class="container">
-                <span class="subtitulo"><?php the_field('subtitulo');?></span>
-                <h1><?php the_title(); ?></h1>
+                <div class="titulos">
+                    <span class="subtitulo"><?php the_field('subtitulo');?></span>
+                    <h1><?php the_title(); ?></h1>
+                </div>
+
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
+                    <li><span><?php the_title(); ?></span></li>
+                </ul>
             </div>
         </section>
 
-        <section class="box-section">
+        <section class="box-section no-padding-top">
             <div class="container">
                 <div class="row">
-
-
-
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <img class="img-destaque-page-simple" src="<?php the_field('imagem_principal'); ?>" alt="">
+                        <div class="content-txt">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <?php //get_template_part( 'content/banner' ); ?>
+        
+        <?php get_template_part( 'content/banner-destaque' ); ?>
 
     <?php endwhile;
 } ?>

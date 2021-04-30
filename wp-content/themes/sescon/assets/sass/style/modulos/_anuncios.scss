@@ -1,0 +1,9 @@
+.anuncio-vertical {
+    width: 100%;
+    //padding: 20px;
+    @include box-sizing;
+
+    @include media {
+        margin-bottom: 40px;
+    }
+}

@@ -134,6 +134,7 @@
 
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery/jquery-3.3.1.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/slick/slick.js"></script>
+    
     <script type="text/javascript">
         $(document).ready(function(){
             $('.btn-open-footer').click(function(){
@@ -222,26 +223,24 @@
             }); 
 
             $('.nav-secundario h4').click(function(){
-                $('.nav-secundario li').removeClass('active');
-                $(this).parent().addClass('active');
-                //$(this).parent().find('ul').slideToggle('');
+                if($(this).parent().hasClass('active')){
+                    $('.menu-colunas ul').slideUp();
+                    $('.nav-secundario li').removeClass('active');
+                }else{
+                    $('.menu-colunas ul').slideUp();
+                    $('.nav-secundario li').removeClass('active');
 
-                //$('#'+$(this).attr('rel-menu')).addClass('active');
-                
-                //$('.nav-secundario .menu-colunas ul').slideToggle();
-                $('.menu-colunas ul').slideUp();
-                $('#'+($(this).attr('rel-menu'))).slideDown();
-
-                //rel-menu
+                    $(this).parent().addClass('active');
+                    $('#'+($(this).attr('rel-menu'))).slideDown();
+                }
             });
 
-            $('.btn-acordeon li').click(function(){
-                $('.btn-acordeon li').removeClass('destaque');
+            $('.btn-tab li').click(function(){
+                $('.btn-tab li').removeClass('destaque');
                 $(this).addClass('destaque');
-                //$(this).attr('var-acordion');
 
-                $('.content-acordeon').slideUp();
-                $('#'+($(this).attr('var-acordion'))).slideDown();
+                $('.content-tab').slideUp();
+                $('#'+($(this).attr('var-tab'))).slideDown();
             });
 
             $('.faq h3').click(function(){
@@ -256,7 +255,22 @@
                 $('.nav-mobile').toggleClass('active');
             });
         });
-    </script>    
+
+        function scroll(){
+            scroll_body = $(window).scrollTop();
+            if(scroll_body > 100){
+                $('body').addClass('scroll');
+            }else{
+                $('body').removeClass('scroll');
+            }
+        }
+
+        scroll();
+
+        $(window).scroll(function(){
+            scroll();
+        });
+    </script>
 
 </body>
 </html>

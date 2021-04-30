@@ -152,6 +152,7 @@
 
     &.slide-ico-tit-2 {
         margin: 0 -7.5px;
+        padding-left: 60px;
 
         .slick-slide {
             margin-bottom: 10px!important;
@@ -311,13 +312,19 @@
     }
 
     .item {
-        height: 365px;
+        //height: 365px;
         background-size: cover;
-        padding: 30px; 
+        //padding: 30px;
+        padding: 0;
         display: flex !important;
         align-items: flex-end;
         @include box-sizing;
         @include animacao;
+
+        .img-slide {
+            width: 100%;
+            display: block;
+        }
 
         .item-img {
             width: 198px;
@@ -383,11 +390,11 @@
 
 .slide-destaque { 
     .item {
-        height: 350px;
+        //height: 350px;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 65px;
+        //padding: 65px;
         display: flex!important;
         align-items: center;
         position: relative;
@@ -414,6 +421,12 @@
             font-weight: $medium;
             position: relative;
             z-index: 1;
+            padding: 0 65px;
+        }
+
+        img, picture {
+            display: block;
+            width: 100%;
         }
 
         &:hover {
