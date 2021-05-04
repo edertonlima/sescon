@@ -196,6 +196,12 @@
                                     <a href="<?php echo get_home_url(); ?>/portal" title="INFORMAÇÃO"> 
                                         <span>APRENDIZAGEM E </span>INFORMAÇÃO
                                     </a>
+
+                                    <ul>
+                                        <li><a class="<?php if( is_post_type_archive('noticias') || is_singular('noticias') ){ echo 'active'; } ?>" href="<?php echo get_home_url(); ?>/noticias" title="Notícias">Notícias</a></li>
+                                        <li><a class="<?php if( is_post_type_archive('videos') || is_singular('videos') ){ echo 'active'; } ?>" href="<?php echo get_home_url(); ?>/videos" title="Vídeos">Vídeos</a></li>
+                                        <li><a class="<?php if( is_post_type_archive('materiais') || is_singular('materiais') ){ echo 'active'; } ?>" href="<?php echo get_home_url(); ?>/materiais" title="Materiais">Materiais</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </nav>

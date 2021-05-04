@@ -250,7 +250,7 @@ function post_type_perfis() {
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-businessperson',
 	    'menu_position' => 5,
-	    'supports' => array('title','editor','thumbnail','excerpt')
+	    'supports' => array('title','thumbnail','excerpt')
 	  );
 
     register_post_type( 'perfis', $args );

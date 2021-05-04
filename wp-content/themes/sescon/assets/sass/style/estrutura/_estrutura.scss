@@ -259,7 +259,7 @@ body {
 			margin: 0!important;
 			position: absolute;
 			bottom: 0;
-			right: 0;
+			right: 30px;
 
 			@include media {
 				position: relative;
@@ -326,6 +326,133 @@ body {
 				flex-direction: column;
 				align-items: flex-start;
 			}
+		}
+	}
+
+	&--blocos-conteudo {
+		position: relative;
+
+		@include media {
+			padding-top: 0;
+		}
+		
+		.container {
+			min-height: 300px;
+			display: flex;
+			align-items: center;
+
+			@include media {
+				min-height: 0;
+				padding-top: 30px;
+			}
+		}
+
+		.img-blocos-conteudo {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 50%;
+			object-fit: cover;
+			object-position: center;
+
+			&:not(.imagem-esquerda) {
+				right: 0;
+			}
+
+			&.imagem-esquerda {
+				left: 0;
+			}
+
+			@include media {
+				position: relative;
+				width: calc(100% - 30px);
+				height: auto;
+				margin: 0 auto;
+				display: block;
+			}
+		}
+
+		.col-6 {
+			&:not(.txt-esquerda) {
+				padding-right: 60px;
+			}
+
+			&.txt-esquerda {
+				padding-left: 60px;
+			}
+
+			@include media {
+				padding: 0!important;
+				text-align: center;
+			}
+		}
+	}
+
+	&--solicitar-apresentacao {
+		position: relative;
+		
+		.container {
+			//min-height: 300px;
+			//display: flex;
+			//align-items: center;
+
+			@include media {
+				min-height: 0;
+				padding-top: 30px;
+			}
+		}
+
+		&:before {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 50%;
+			right: 0;
+			z-index: 2;
+			opacity: .75;
+			@include gradiente3(90,$cor2,$cor1,$cor1);
+
+			@include media {
+				width: 100%;
+			}
+		}
+
+		.bg-solicitar-apresentacao {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 50%;
+			object-fit: cover;
+			object-position: center;
+			right: 0;
+			z-index: 0;
+
+			@include media {
+				width: 100%;
+			}
+		}
+
+		.img-solicitar-apresentacao {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 50%;
+			object-fit: cover;
+			object-position: center;
+			left: 0;
+
+			@include media {
+				position: relative;
+				width: calc(100% - 30px);
+				height: auto;
+				margin: 0 auto;
+				display: none;
+			}
+		}
+
+		.col-6 {
+			position: relative;
+			z-index: 3;
 		}
 	}
 
@@ -623,6 +750,22 @@ body {
 
 		figcaption {
 			margin: 50px 0;
+		}
+	}
+
+	&--perfil {		
+		.sub-titulo {
+			font-weight: $light;
+			text-align: center;
+		}
+
+		h2 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		p {
+			text-align: center;
 		}
 	}
 }

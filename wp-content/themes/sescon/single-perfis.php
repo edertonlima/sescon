@@ -9,7 +9,7 @@
             $imagem = $imagem_array[0];
         ?>
 
-        <section class="box-section box-section--image box-section--header-page box-section--header-single-solucoes" style="background-image: url('<?php echo $imagem; ?>');">
+        <section class="box-section box-section--image box-section--header-page box-section--header-page-padrao" style="background-image: url('<?php echo $imagem; ?>');">
             <div class="container">
                 <div class="titulos">
                     <span class="subtitulo"><?php the_field('subtitulo');?></span>
@@ -18,28 +18,34 @@
 
                 <ul class="breadcrumb">
                     <li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-                    <li><a href="<?php echo get_home_url(); ?>/perfis" title="Perfis">Perfis</a></li>
                     <li><span><?php the_title(); ?></span></li>
                 </ul>
             </div>
         </section>
 
-        <section class="box-section box-section-content-txt">
+        <section class="box-section no-padding-top">
             <div class="container">
                 <div class="row">
-
+                    <div class="col-3"></div>
                     <div class="col-6">
-                        <div class="content-txt page-padrao">
-                            <?php the_content(); ?>
+                        <?php if(get_field('imagem-principal')){ ?>
+                            <img class="img-destaque-page-simple" src="<?php the_field('imagem-principal'); ?>" alt="<?php the_title(); ?>">
+                        <?php } ?>
+                        <div class="content-txt page-padrao content-txt--perfil">
+                            <?php if(get_field('subtitulo-perfil')){ ?><span class="sub-titulo"><?php the_field('subtitulo-perfil'); ?></span><?php } ?>
+                            <?php if(get_field('titulo-perfil')){ ?><h2><?php the_field('titulo-perfil'); ?></h2><?php } ?>
+                            <?php if(get_field('texto-perfil')){ ?><p><?php the_field('texto-perfil'); ?></p><?php } ?>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <img src="<?php the_field('imagem_principal'); ?>" alt="<?php the_title(); ?>" class="img-principal">
-                    </div>
-
                 </div>
             </div>
         </section>
+
+        <?php get_template_part( 'content/banner-simples' ); ?>
+
+        <?php get_template_part( 'content/blocos-conteudo' ); ?>
+
+        <?php get_template_part( 'content/solicitar-apresentacao' ); ?>
 
         <?php if( have_rows('acordeao') ): ?>
             <section class="box-section box-section-acordeon">
@@ -115,7 +121,7 @@
             </section>
         <?php endif; ?>
 
-        <?php get_template_part( 'content/perfis' ); ?>    
+        <?php //get_template_part( 'content/perfis' ); ?>    
 
         <?php get_template_part( 'content/banner-destaque' ); ?>
 
