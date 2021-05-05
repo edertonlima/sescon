@@ -15,10 +15,11 @@ form {
 
 	label {
 		font-family: $font-family;
-		font-weight: $bold;
-		color: $cor-txt;
+		font-weight: $regular;
+		color: #ffffff;
 		font-size: 16px;
 		line-height: 32px;
+		padding-left: 25px;
 	}
 
 	.input-form:not(.input-checkbox-vacina) {
@@ -127,15 +128,6 @@ form {
 
 	&.newsletter {
 		padding-left: 25px;
-		input {
-			border-radius: 22px;
-			border-color: #ffffff;
-			color: #ffffff;
-
-			@include placeholder{
-				color: #ffffff;
-			}
-		}
 
 		button {
 			background-color: $cor4;

@@ -398,7 +398,7 @@ body {
 
 			@include media {
 				min-height: 0;
-				padding-top: 30px;
+				//padding-top: 30px;
 			}
 		}
 
@@ -584,6 +584,11 @@ body {
 			font-size: 52px;
 			line-height: 52px;
 			margin-bottom: 40px;
+
+			@include media {
+				font-size: 35px;
+				line-height: 35px;
+			}
 		}
 		.faq {
 			width: 100%;
@@ -766,6 +771,30 @@ body {
 
 		p {
 			text-align: center;
+		}
+	}
+}
+
+.shortcode {
+	form {
+		max-width: 400px;
+		width: 100%;
+
+		input, button {
+			height: 42px;
+			margin: 3px 0;
+		}
+
+		button, input[type='submit'], input[type='button'] {
+			background-color: $cor4;
+			border-color: $cor4;
+			border-radius: 22px;
+			font-weight: $bold;
+
+			&:hover {
+				background-color: $cor3;
+				border-color: $cor3;
+			}
 		}
 	}
 }

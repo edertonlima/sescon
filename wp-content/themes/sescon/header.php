@@ -135,6 +135,31 @@
                                     ?>
                                 </li>
 
+                                <li>
+                                    <a href="<?php echo get_home_url(); ?>/perfis" title="ATUAÇÕES E INICIATIVAS"> 
+                                        <span>ATUAÇÕES E </span>INICIATIVAS
+                                    </a>
+
+                                    <?php
+                                        $query = array(
+                                            'post_type' => 'perfis'
+                                        );
+                                        query_posts( $query );        
+                                        if( have_posts() ){ ?>
+                                            <ul>
+
+                                                <?php while ( have_posts() ) : the_post(); ?>
+                                                    <li>
+                                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                                    </li>
+                                                <?php endwhile;
+                                                wp_reset_query(); ?>
+                                            
+                                            </ul>
+                                        <?php }
+                                    ?>
+                                </li>
+
                                 <?php 
                                     $array_menu = wp_get_nav_menu_items('header');
                                     $submenu = false;

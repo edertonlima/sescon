@@ -17,6 +17,50 @@
 				color: $cor-txt;
 			}
 		}
+
+		ul {
+			display: none;
+			position: absolute;
+			left: 0;
+			width: 200px;
+			margin: 0;
+			flex-direction: column;
+			align-items: flex-start;
+			z-index: 999;
+			top: 0;
+			z-index: 999;
+			padding-top: 32px;
+			border-radius: 0 0 7px 7px;
+			overflow: hidden;
+
+			li {
+				background-color: #f1f1f1;
+				line-height: 34px;
+				width: 100%;
+				border: none!important;
+				padding: 0px!important;
+				@include box-sizing;
+
+				a {
+					color: $cor1!important;
+					padding: 12px 20px;
+					display: block;
+					font-weight: $bold;
+
+					&:hover {
+						background-color: #ffffff;
+					}
+				}
+
+				&:first-child {
+					//padding-top: 10px!important;
+				}
+
+				&:last-child {
+					//padding-bottom: 10px!important;
+				}
+			}
+		}
 	}
 
 	&.nav-top {
@@ -78,6 +122,10 @@
 				}
 
 				&:hover {
+					a {
+						color: $cor3;
+					}
+
 					ul {
 						display: flex;
 					}
@@ -90,31 +138,12 @@
 			}
 
 			ul {
-				display: none;
-				position: absolute;
-				top: 21px;
-				left: 0;
-				width: 200px;
-				margin: 0;
-				flex-direction: column;
-				align-items: flex-start;
-				z-index: 999;
-				padding-top: 11px;
-
 				li {
-					background-color: darken($cor1, 5%);
-					line-height: 34px;
-					width: 100%;
-					border: none!important;
-					padding: 0 20px!important;
-					@include box-sizing;
+					display: block;
+					padding: 0!important;
 
-					&:first-child {
-						padding-top: 20px!important;
-					}
-
-					&:last-child {
-						padding-bottom: 20px!important;
+					a {
+						padding: 10px 20px!important;
 					}
 				}
 			}
@@ -157,48 +186,18 @@
 					}
 				}
 
+				ul {
+					li {
+						a {
+							padding: 10px 20px;
+							line-height: 22px;
+						}
+					}
+				}
+
 				&:hover {
 					ul {
 						display: flex;
-					}
-				}
-			}
-
-			ul {
-				display: none;
-				position: absolute;
-				top: 25px;
-				left: 0;
-				width: 200px;
-				margin: 0;
-				flex-direction: column;
-				align-items: flex-start;
-				z-index: 999;
-				padding-top: 11px;
-
-				li {
-					background-color: $cor3;
-					line-height: 34px;
-					width: 100%;
-					border: none!important;
-					padding: 0 20px!important;
-					@include box-sizing;
-
-					a {
-						color: #ffffff!important;
-						line-height: 27px;
-
-						&:hover {
-							color: $cor1!important;
-						}
-					}
-
-					&:first-child {
-						padding-top: 10px!important;
-					}
-
-					&:last-child {
-						padding-bottom: 10px!important;
 					}
 				}
 			}

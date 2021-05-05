@@ -7,7 +7,9 @@
 
                 <div class="col-6">&nbsp;</div>
                 <div class="col-6">                    
-                    <?php echo do_shortcode(get_field('formulario-solicitar-apresentacao')); ?>
+                    <div class="shortcode">  
+                        <?php echo do_shortcode(get_field('formulario-solicitar-apresentacao')); ?>
+                    </div>    
                 </div>
 
             </div>

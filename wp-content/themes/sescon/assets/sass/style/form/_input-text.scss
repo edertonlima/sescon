@@ -1,27 +1,28 @@
-input[type='text'], input[type='email'], input[type='password'], input[type='date'], input[type='number'] {
+input[type='text'], input[type='email'], input[type='password'], input[type='date'], input[type='number'], input[type='tel'] {
 
 	font-style: italic;
 	max-width: 100%;
 	width: 100%;
 	font-size: 14px;
-	color: $cor-txt;
 	font-weight: $regular;
 	line-height: $height_input;
 	background-color: transparent;
 	padding: 0px 23px;
 	font-style: normal;
-	border: 1px solid $cor-border;
-	border-radius: 4px;
+	border: 1px solid #ffffff;
+	border-radius: 22px;
+	color: #ffffff;
 	@include animacao;
 	@include box-sizing;
 
 	@include placeholder{
 		opacity: 1;
-		color: $cor-txt;
+		color: #ffffff;
 	}
 
 	&:focus {
-		border-color: $cor-border;
+		border-color: $cor3;
+		color: #ffffff;
 	}
 }
 
