@@ -211,6 +211,164 @@ function create_taxonomy_categoria_materiais() {
 	);
 }
 
+
+
+// evento
+add_action( 'init', 'post_type_evento' );
+function post_type_evento() {
+
+	$labels = array(
+	    'name' => _x('Evento', 'post type general name'),
+	    'singular_name' => _x('Evento', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', ''),
+	    'add_new_item' => __('Adicionar novo'),
+	    'edit_item' => __('Editar'),
+	    'new_item' => __('Novo post'),
+	    'all_items' => __('Todos as post'),
+	    'view_item' => __('Visualizar post'),
+	    'search_items' => __('Procurar post'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Evento'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+
+		'rewrite'=> [
+			'slug' => 'evento',
+			"with_front" => true,
+		],
+
+		"cptp_permalink_structure" => "/%categoria_evento%/%postname%/",
+
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => true,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-businessperson',
+	    'menu_position' => 5,
+	    'supports' => array('title','thumbnail','excerpt')
+	  );
+
+    register_post_type( 'evento', $args );
+}
+add_action( 'init', 'create_taxonomy_categoria_evento' );
+function create_taxonomy_categoria_evento() {
+
+	$labels = array(
+		'name' => _x( 'Categoria Evento', 'taxonomy general name' ),
+		'singular_name' => _x( 'Categoria Evento', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Procurar categoria' ),
+		'all_items' => __( 'Todas as categorias' ),
+		'parent_item' => __( 'Categoria pai' ),
+		'parent_item_colon' => __( 'Categoria pai:' ),
+		'edit_item' => __( 'Editar categoria' ),
+		'update_item' => __( 'Atualizar categoria' ),
+		'add_new_item' => __( 'Adicionar nova categoria' ),
+		'new_item_name' => __( 'Nova categoria' ),
+		'menu_name' => __( 'Categoria' ),
+	);
+
+	register_taxonomy( 'categoria_evento', array( 'evento' ), array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'show_in_tag_cloud' => true,
+		'query_var' => true,
+		'rewrite' => array(
+			'slug' => 'evento',
+			'with_front' => true,
+			)
+		)
+	);
+}
+
+
+
+// curso
+add_action( 'init', 'post_type_curso' );
+function post_type_curso() {
+
+	$labels = array(
+	    'name' => _x('Curso', 'post type general name'),
+	    'singular_name' => _x('Curso', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', ''),
+	    'add_new_item' => __('Adicionar novo'),
+	    'edit_item' => __('Editar'),
+	    'new_item' => __('Novo post'),
+	    'all_items' => __('Todos as post'),
+	    'view_item' => __('Visualizar post'),
+	    'search_items' => __('Procurar post'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Curso'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+
+		'rewrite'=> [
+			'slug' => 'curso',
+			"with_front" => true,
+		],
+
+		"cptp_permalink_structure" => "/%categoria_curso%/%postname%/",
+
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => true,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-businessperson',
+	    'menu_position' => 5,
+	    'supports' => array('title','thumbnail','excerpt')
+	  );
+
+    register_post_type( 'curso', $args );
+}
+add_action( 'init', 'create_taxonomy_categoria_curso' );
+function create_taxonomy_categoria_curso() {
+
+	$labels = array(
+		'name' => _x( 'Categoria Curso', 'taxonomy general name' ),
+		'singular_name' => _x( 'Categoria Curso', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Procurar categoria' ),
+		'all_items' => __( 'Todas as categorias' ),
+		'parent_item' => __( 'Categoria pai' ),
+		'parent_item_colon' => __( 'Categoria pai:' ),
+		'edit_item' => __( 'Editar categoria' ),
+		'update_item' => __( 'Atualizar categoria' ),
+		'add_new_item' => __( 'Adicionar nova categoria' ),
+		'new_item_name' => __( 'Nova categoria' ),
+		'menu_name' => __( 'Categoria' ),
+	);
+
+	register_taxonomy( 'categoria_curso', array( 'curso' ), array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'show_in_tag_cloud' => true,
+		'query_var' => true,
+		'rewrite' => array(
+			'slug' => 'curso',
+			'with_front' => true,
+			)
+		)
+	);
+}
+
+
+
 // perfis
 add_action( 'init', 'post_type_perfis' );
 function post_type_perfis() {
@@ -464,6 +622,12 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'  => 'Banners',
 		'parent_slug' => 'configuracoes-gerais',
 	));
+
+	/*acf_add_options_sub_page(array(
+		'page_title'  => 'Cursos',
+		'menu_title'  => 'Cursos',
+		'parent_slug' => 'configuracoes-gerais',
+	));*/
 
 	acf_add_options_page(array(
         'page_title'  => 'Blocos de menu posicionados no rodapé',

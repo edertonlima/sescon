@@ -77,6 +77,8 @@
 
     <?php get_template_part( 'content/banner' ); ?>
 
+    <?php get_template_part( 'content/banner-pequeno' ); ?>
+
     <?php if( have_rows('topico-home') ): ?>
         <section class="box-section box-destaque-sescon">
             <div class="container">
@@ -247,7 +249,7 @@
         <?php }
     ?>
     
-    <?php get_template_part( 'content/section-videos' ); ?>
+    <?php get_template_part( 'content/section-videos' ); ?> 
     <?php get_template_part( 'content/section-noticias' ); ?>    
     <?php get_template_part( 'content/section-materiais' ); ?>
 

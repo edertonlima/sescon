@@ -643,9 +643,11 @@ form {
 	}
 }
 
-.box-portal-sescon-sp, .box-post-video, .box-post-noticias, .box-newsletter {
-    @include media(){ 
-        display: none;
+.home {
+    .box-portal-sescon-sp, .box-post-video, .box-post-noticias, .box-newsletter {
+        @include media(){ 
+            display: none;
+        }
     }
 }
 
@@ -720,4 +722,10 @@ form {
 	@include media {
 		margin: 50px 0; 
 	} 
+}
+
+.single-curso {
+    .img-destaque-page-simple {
+        margin-bottom: 0;
+    }
 }

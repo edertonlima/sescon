@@ -1,5 +1,5 @@
       
-    <?php if( have_rows('banner-simples') ): ?>
+    <?php if( have_rows('banner-simples') ): ?> 
 
         <section class="box-section box-destaque-sescon">
             <div class="container">

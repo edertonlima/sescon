@@ -136,13 +136,13 @@
                                 </li>
 
                                 <li>
-                                    <a href="<?php echo get_home_url(); ?>/perfis" title="ATUAÇÕES E INICIATIVAS"> 
+                                    <a href="<?php echo get_home_url(); ?>/iniciativas" title="ATUAÇÕES E INICIATIVAS"> 
                                         <span>ATUAÇÕES E </span>INICIATIVAS
                                     </a>
 
                                     <?php
                                         $query = array(
-                                            'post_type' => 'perfis'
+                                            'post_type' => 'iniciativas'
                                         );
                                         query_posts( $query );        
                                         if( have_posts() ){ ?>
@@ -209,7 +209,57 @@
 
                                         <?php
                                     }
-                                ?> 
+                                ?>
+
+                                <li>
+                                    <a title="EVENTOS"> 
+                                        EVENTOS
+                                    </a>
+
+                                    <?php
+                                        $query = array(
+                                            'post_type' => 'evento'
+                                        );
+                                        query_posts( $query );        
+                                        if( have_posts() ){ ?>
+                                            <ul>
+
+                                                <?php while ( have_posts() ) : the_post(); ?>
+                                                    <li>
+                                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                                    </li>
+                                                <?php endwhile;
+                                                wp_reset_query(); ?>
+                                            
+                                            </ul>
+                                        <?php }
+                                    ?>
+                                </li>
+
+                                <li>
+                                    <a title="CURSOS"> 
+                                        CURSOS
+                                    </a>
+
+                                    <?php
+                                        $query = array(
+                                            'post_type' => 'curso'
+                                        );
+                                        query_posts( $query );        
+                                        if( have_posts() ){ ?>
+                                            <ul>
+
+                                                <?php while ( have_posts() ) : the_post(); ?>
+                                                    <li>
+                                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                                    </li>
+                                                <?php endwhile;
+                                                wp_reset_query(); ?>
+                                            
+                                            </ul>
+                                        <?php }
+                                    ?>
+                                </li>
                                 
                                 <?php
                                     if( is_home() || is_category() || is_singular('post') || is_singular('videos') || is_singular('noticias') || is_singular('materiais') ){
@@ -218,8 +268,8 @@
                                 ?>
 
                                 <li class="<?php echo $class_aprendizagem; ?>">
-                                    <a href="<?php echo get_home_url(); ?>/portal" title="INFORMAÇÃO"> 
-                                        <span>APRENDIZAGEM E </span>INFORMAÇÃO
+                                    <a title="PORTAL"> 
+                                        PORTAL
                                     </a>
 
                                     <ul>

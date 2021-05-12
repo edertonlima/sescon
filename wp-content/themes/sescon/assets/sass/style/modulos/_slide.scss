@@ -70,6 +70,55 @@
         }
     }
 
+    &.slide-pequeno {
+        .slick-track {
+            display: flex;
+        }
+        .slick-slide {
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+            border: none;
+            height: 100%;
+
+            &:hover {
+                box-shadow: none;
+                border-color: $cor1;
+            }
+
+            @include media(){ 
+                padding: 0;
+                margin: 0;
+            }
+
+            a {
+                height: 180px;
+                margin: 0 18px 18px;
+                padding: 20px;
+                border-radius: 10px;
+                border: 2px solid #d2d2d2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                @include box-sizing;
+                @include animacao;
+        
+                @include media(){ 
+                    margin: 0 3.5px;
+                    padding: 15px;
+                }
+
+                &:hover {
+                    box-shadow: 3px 3px 5px #d2d2d2;
+                    border-color: $cor1;
+                }
+            }
+        }
+    }
+
     .slick-arrow {
         width: 32px;
         height: 32px;

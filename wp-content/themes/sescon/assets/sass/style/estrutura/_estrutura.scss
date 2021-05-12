@@ -668,7 +668,7 @@ body {
 	}
 
 	p {
-		color: #959595;
+		color:$cor-txt;
 		font-size: 16px;
 		line-height: 22px;
 		font-weight: $regular;
@@ -773,6 +773,30 @@ body {
 			text-align: center;
 		}
 	}
+
+	&--curso {
+		.sub-titulo {
+			font-weight: $light;
+			padding-right: 60px;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+			padding-right: 60px;
+		}
+
+		p {
+			padding-right: 60px;
+		}
+		
+		@include media {
+			padding: 0;
+
+			h2, .sub-titulo, p {
+				padding-right: 0px;
+			}
+		}
+	}
 }
 
 .shortcode {
@@ -794,6 +818,42 @@ body {
 			&:hover {
 				background-color: $cor3;
 				border-color: $cor3;
+			}
+		}
+	}
+
+	@include media {
+		margin-top: 60px;
+	}
+
+	&.form-bg-branco {
+		.sub-titulo {
+			color: $cor-txt!important;
+		}
+
+		h2 {
+			color: $cor1!important;
+		}
+
+		label {
+			color: $cor-txt;
+		}
+
+		input {
+			border-color: $cor1;
+			color: $cor-txt;
+
+			@include placeholder{
+				opacity: 1;
+				color: $cor-txt;
+			}
+
+			&:focus {
+				color: $cor3;
+
+				@include placeholder{
+					color: $cor3;
+				}
 			}
 		}
 	}

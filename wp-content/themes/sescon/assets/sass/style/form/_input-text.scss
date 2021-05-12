@@ -17,7 +17,7 @@ input[type='text'], input[type='email'], input[type='password'], input[type='dat
 
 	@include placeholder{
 		opacity: 1;
-		color: #ffffff;
+		color: #ffffff; 
 	}
 
 	&:focus {
